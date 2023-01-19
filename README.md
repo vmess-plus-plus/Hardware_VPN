@@ -5,5 +5,5 @@
 宿主机：  Python3.8+,Windows8+  
 
 #安装:
-
-我等会写-NotFlyLoong
+1.将init.py复制到无线网卡的附带u盘。
+2.将您的keyfile复制到u盘。
