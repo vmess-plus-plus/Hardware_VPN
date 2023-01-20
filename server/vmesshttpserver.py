@@ -7,7 +7,7 @@ realServerIP = '请填入服务地址'
 try:
     with open('keyfile.key', 'r') as f:
         key = f.read()
-except FileExistsError:
+except FileNotFoundError:
     key = '123456'
     print('你没有设置keyfile!在这种情况下,加密是无效的.')
 
