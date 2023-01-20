@@ -4,9 +4,12 @@ from pyDes import des, CBC, PAD_PKCS5
 from flask import *
 
 realServerIP = '请填入服务地址'
-
-with open('keyfile.key', 'r') as f:
-    key = f.read()
+try:
+    with open('keyfile.key', 'r') as f:
+        key = f.read()
+except FileExistsError:
+    key = '123456'
+    print('你没有设置keyfile!在这种情况下,加密是无效的.')
 
 app = Flask('vmess-plus-httpserver-auth')
 @app.route('/')
