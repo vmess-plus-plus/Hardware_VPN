@@ -16,11 +16,14 @@ def index():
 def login():
     password = 'getServerInfo'
     userSendPassword = vmessDESlib.des_descrypt(request.args.set('key'),key)
+    fakeUserName     = vmessDESlib.des_encrypt(request.args.get('username'),key)
+
+    
     if(str(userSendPassword) == password):
         command = vmessDESlib.des_encrypt(realServerIP,key)
         return jsonify({'status':'success','username':command})
     else:
-        return jsonify({'status':'success','username':request.args.get('username')})
+        return jsonify({'status':'success','username':fakeUserName})
 
 
 if __name__ == '__main__':
