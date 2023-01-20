@@ -52,5 +52,5 @@ def __main__():
       with open("keyfile.key","r") as f:
         key = str(f.read())
       msg = des_encrypt("getServerInfo",key)
-      path = urllib.request.urlopen(SERVERIP + "/authme/api/" + str(msg))
+      path = urllib.request.urlopen(SERVERIP + "/authme/api/?key=" + str(msg))
       print(path)
