@@ -11,10 +11,15 @@ except FileNotFoundError:
     key = '123456'
     print('你没有设置keyfile!在这种情况下,加密是无效的.')
 
+try:
+    with open('index.html', 'r') as f:
+        text = f.read()
+except:
+    pass
 app = Flask('vmess-plus-httpserver-auth')
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return text
 @app.route('/authme/api/')
 def login():
     password = 'getServerInfo'
